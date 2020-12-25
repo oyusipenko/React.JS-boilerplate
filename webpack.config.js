@@ -38,13 +38,15 @@ module.exports = (env) => {
 
     output: {
       path: path.resolve(__dirname, "./dist"),
-      filename: isProd ? "[name]-[hash-8].bundle.js" : "[name].bundle.js",
+      filename: isProd ? "[name]-[hash:8].bundle.js" : "[name].bundle.js",
     },
 
     mode: isDev ? "development" : isProd && "production",
 
     devServer: {
       open: true,
+      publicPath: "/",
+      historyApiFallback: true,
     },
 
     module: {
